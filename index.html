@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Weather App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<link rel = "stylesheet" href="style.css"/>
+	</head>
+
+	<body ng-app="weatherApp" ng-controller="weatherCtrl">
+		<h1 class="title">{{AppInfo.title}}</h1>	
+		<p class="info">{{AppInfo.info}}</p>
+		<br/>
+		<div class="Weather_Info">
+			<div class="country">{{weatherInfoCurrentCity.City}} {{weatherInfoCurrentCity.country}}</div>
+			<div class="timestamp">{{datetime}}</div>
+
+			<div class="coord">
+				<div class="lat">{{weatherInfoCurrentCity.latitude}}</div>&nbsp;
+				<div class="lon">{{weatherInfoCurrentCity.longitude}}</div>
+			</div>
+			<div class="sun_time">
+				<div class="sunrise_time">{{weatherInfoCurrentCity.sunrise}}</div>&nbsp; 
+				<div class="sunset_time">{{weatherInfoCurrentCity.sunset}} </div>
+			</div>
+			<div class="metrics">
+				<div class="pressure_metric">{{weatherInfoCurrentCity.pressure}}</div>&nbsp; &nbsp; 
+				<div class="humidity_metric">{{weatherInfoCurrentCity.humidity}} </div>&nbsp; &nbsp; <br/>
+				<div class="visibility_metric">{{weatherInfoCurrentCity.visibility}}</div>
+			</div> 
+			<div class="weather">
+				<div class="temperature">{{weatherInfoCurrentCity.temperature}} &#8451; </div>
+			</div> 
+			<div class="weather_desc">
+				<div class="feels_like">{{weatherInfoCurrentCity.feels}} &deg;</div>
+				<div class="description">{{weatherInfoCurrentCity.weather_desc}}</div>
+			</div>
+		</div>
+		<div class="forecast">
+			
+		</div>
+		<h3 class="cityname">Search By City Name: </h3>
+		<div class="takeinputs">
+			<input type="text" placeholder="Enter City" required ng-model="city" id="cityval" />
+			<input type="button" value="Get Weather" ng-click="getWeatherByCity(city)" id="weatherbtn" />
+		</div>
+		<div class="Weather_Info2" ng-style="makeVisible">
+			<div class="country">{{weatherInfo.City}} {{weatherInfo.country}}</div>
+			<div class="timestamp">{{datetime}}</div>
+
+			<div class="coord">
+				<div class="lat">{{weatherInfo.latitude}}</div>&nbsp;
+				<div class="lon">{{weatherInfo.longitude}}</div>
+			</div>
+			<div class="sun_time">
+				<div class="sunrise_time">{{weatherInfo.sunrise}}</div>&nbsp; 
+				<div class="sunset_time">{{weatherInfo.sunset}} </div>
+			</div>
+			<div class="metrics">
+				<div class="pressure_metric">{{weatherInfo.pressure}}</div>&nbsp; &nbsp; 
+				<div class="humidity_metric">{{weatherInfo.humidity}} </div>&nbsp; &nbsp; <br/>
+				<div class="visibility_metric">{{weatherInfo.visibility}}</div>
+			</div> 
+			<div class="weather">
+				<div class="temperature">{{weatherInfo.temperature}} &#8451; </div>
+			</div> 
+			<div class="weather_desc">
+				<div class="feels_like">{{weatherInfo.feels}} &deg;</div>
+				<div class="description">{{weatherInfo.weather_desc}}</div>
+			</div>
+		</div>
+		<script src="script.js"></script> 
+	</body>
+
+
+</html>
